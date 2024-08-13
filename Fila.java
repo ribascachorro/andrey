@@ -1,80 +1,80 @@
 public class Fila {
-    private int capacidade;
-    private int primeiro;
-    private int ultimo;
-    private int[] dados;
-    private String[] dadosString; 
+    private int capacidadeMaxima;
+    private int indicePrimeiro;
+    private int indiceUltimo;
+    private int[] filaInteiros;
+    private String[] filaStrings; 
 
     // Construtor
-    public Fila(int capacidade) {
-        this.capacidade = capacidade;
-        this.primeiro = 0;
-        this.ultimo = -1;
-        this.dados = new int[capacidade];
-        this.dadosString = new String[capacidade]; 
+    public Fila(int capacidadeMaxima) {
+        this.capacidadeMaxima = capacidadeMaxima;
+        this.indicePrimeiro = 0;
+        this.indiceUltimo = -1;
+        this.filaInteiros = new int[capacidadeMaxima];
+        this.filaStrings = new String[capacidadeMaxima]; 
     }
 
-    //se a fila estiver cheia
-    public boolean cheia() {
-        return (ultimo - primeiro + 1) == capacidade;
+    // Verifica se a fila está cheia
+    public boolean estaCheia() {
+        return (indiceUltimo - indicePrimeiro + 1) == capacidadeMaxima;
     }
 
-    // se tiver vazio
-    public boolean vazia() {
-        return primeiro > ultimo;
+    // Verifica se a fila está vazia
+    public boolean estaVazia() {
+        return indicePrimeiro > indiceUltimo;
     }
 
-    // novo elemento(int)
-    public void insere(int elemento) throws Exception {
-        if (cheia()) {
+    // Insere novo elemento inteiro na fila
+    public void inserir(int elemento) throws Exception {
+        if (estaCheia()) {
             throw new Exception("Fila cheia");
         }
-        dados[++ultimo] = elemento;
+        filaInteiros[++indiceUltimo] = elemento;
     }
 
-    //novo elemento (String)
-    public void insere(String elemento) throws Exception {
-        if (cheia()) {
+    // Insere novo elemento string na fila
+    public void inserir(String elemento) throws Exception {
+        if (estaCheia()) {
             throw new Exception("Fila cheia");
         }
-        dadosString[++ultimo] = elemento;
+        filaStrings[++indiceUltimo] = elemento;
     }
 
-    // tira elemento(int)
-    public int remove() throws Exception {
-        if (vazia()) {
+    // Remove e retorna o próximo elemento inteiro da fila
+    public int remover() throws Exception {
+        if (estaVazia()) {
             throw new Exception("Fila vazia");
         }
-        return dados[primeiro++];
+        return filaInteiros[indicePrimeiro++];
     }
 
-    // tira elemento (String)
-    public String removeString() throws Exception {
-        if (vazia()) {
+    // Remove e retorna o próximo elemento string da fila
+    public String removerString() throws Exception {
+        if (estaVazia()) {
             throw new Exception("Fila vazia");
         }
-        return dadosString[primeiro++];
+        return filaStrings[indicePrimeiro++];
     }
 
-    // print fila toda (int)
-    public void imprime() {
-        if (vazia()) {
+    // Imprime todos os elementos inteiros da fila
+    public void imprimirFilaInteiros() {
+        if (estaVazia()) {
             System.out.println("Fila vazia");
         } else {
-            for (int i = primeiro; i <= ultimo; i++) {
-                System.out.print(dados[i] + " ");
+            for (int i = indicePrimeiro; i <= indiceUltimo; i++) {
+                System.out.print(filaInteiros[i] + " ");
             }
             System.out.println();
         }
     }
 
-    // print tudo (String)
-    public void imprimeString() {
-        if (vazia()) {
+    // Imprime todos os elementos string da fila
+    public void imprimirFilaStrings() {
+        if (estaVazia()) {
             System.out.println("Fila vazia");
         } else {
-            for (int i = primeiro; i <= ultimo; i++) {
-                System.out.print(dadosString[i] + " ");
+            for (int i = indicePrimeiro; i <= indiceUltimo; i++) {
+                System.out.print(filaStrings[i] + " ");
             }
             System.out.println();
         }
