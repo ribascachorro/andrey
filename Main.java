@@ -1,97 +1,96 @@
 public class Main {
     public static void main(String[] args) {
         try {
-            //pilha de inteiros
+            // Testando pilha de inteiros
+            System.out.println("Pilha de Inteiros");
+            Pilha pilhaInteiros = new Pilha(5);
 
-            System.out.println(" Pilha de Inteiros");
-            Pilha pilhaInt = new Pilha(5);
+            pilhaInteiros.inserir(10);
+            pilhaInteiros.inserir(20);
+            pilhaInteiros.inserir(30);
 
-            pilhaInt.insere(10);
-            pilhaInt.insere(20);
-            pilhaInt.insere(30);
+            System.out.println("Conteúdo da Pilha de Inteiros:");
+            pilhaInteiros.imprimir();
 
-            System.out.println("Pilha de Inteiros:");
-            pilhaInt.imprime();
-
-            System.out.println("Removendo elemento: " + pilhaInt.remove());
-            pilhaInt.imprime();
+            System.out.println("Removendo elemento: " + pilhaInteiros.remover());
+            pilhaInteiros.imprimir();
 
             System.out.println("Adicionando elemento: 25");
-            pilhaInt.insere(25);
-            pilhaInt.imprime();
+            pilhaInteiros.inserir(25);
+            pilhaInteiros.imprimir();
 
-            // pilha de strings
-            System.out.println("\n Pilha de Strings");
-            Pilha pilhaString = new Pilha(5);
+            // Testando pilha de strings
+            System.out.println("\nPilha de Strings");
+            Pilha pilhaStrings = new Pilha(5);
 
-            pilhaString.insere("A");
-            pilhaString.insere("B");
-            pilhaString.insere("C");
+            pilhaStrings.inserir("A");
+            pilhaStrings.inserir("B");
+            pilhaStrings.inserir("C");
 
-            System.out.println("Pilha de Strings:");
-            pilhaString.imprimeString();
+            System.out.println("Conteúdo da Pilha de Strings:");
+            pilhaStrings.imprimirStrings();
 
-            System.out.println("Removendo elemento: " + pilhaString.removeString());
-            pilhaString.imprimeString();
+            System.out.println("Removendo elemento: " + pilhaStrings.removerString());
+            pilhaStrings.imprimirStrings();
 
             System.out.println("Adicionando elemento: B");
-            pilhaString.insere("B");
-            pilhaString.imprimeString();
+            pilhaStrings.inserir("B");
+            pilhaStrings.imprimirStrings();
 
-            //fila de inteiros
-            System.out.println("\n Testando Fila de Inteiros");
-            Fila filaInt = new Fila(5);
+            // Testando fila de inteiros
+            System.out.println("\nFila de Inteiros");
+            Fila filaInteiros = new Fila(5);
 
-            filaInt.insere(10);
-            filaInt.insere(20);
-            filaInt.insere(30);
-            filaInt.insere(40);
-            filaInt.insere(50);
+            filaInteiros.inserir(10);
+            filaInteiros.inserir(20);
+            filaInteiros.inserir(30);
+            filaInteiros.inserir(40);
+            filaInteiros.inserir(50);
 
-            System.out.println("Fila de Inteiros:");
-            filaInt.imprime();
+            System.out.println("Conteúdo da Fila de Inteiros:");
+            filaInteiros.imprimirFilaInteiros();
 
             System.out.println("Tentando inserir na fila cheia:");
             try {
-                filaInt.insere(90);
+                filaInteiros.inserir(90);
             } catch (Exception e) {
                 System.out.println("Erro: " + e.getMessage());
             }
 
-            System.out.println("Removendo elemento: " + filaInt.remove());
-            filaInt.imprime();
+            System.out.println("Removendo elemento: " + filaInteiros.remover());
+            filaInteiros.imprimirFilaInteiros();
 
             System.out.println("Adicionando elemento: 90");
-            filaInt.insere(90);
-            filaInt.imprime();
+            filaInteiros.inserir(90);
+            filaInteiros.imprimirFilaInteiros();
 
-            // fila de strings
-            System.out.println("\n Fila de Strings");
-            Fila filaString = new Fila(5);
+            // Testando fila de strings
+            System.out.println("\nFila de Strings");
+            Fila filaStrings = new Fila(5);
 
-            filaString.insere("C");
-            filaString.insere("F");
-            filaString.insere("C");
+            filaStrings.inserir("C");
+            filaStrings.inserir("F");
+            filaStrings.inserir("C");
 
-            System.out.println("Fila de Strings:");
-            filaString.imprimeString();
+            System.out.println("Conteúdo da Fila de Strings:");
+            filaStrings.imprimirFilaStrings();
 
-            System.out.println("Removendo elemento: " + filaString.removeString());
-            filaString.imprimeString();
+            System.out.println("Removendo elemento: " + filaStrings.removerString());
+            filaStrings.imprimirFilaStrings();
 
             System.out.println("Adicionando elemento: A");
-            filaString.insere("A");
-            filaString.imprimeString();
+            filaStrings.inserir("A");
+            filaStrings.imprimirFilaStrings();
 
             System.out.println("Removendo todos os elementos da fila de strings:");
-            filaString.removeString();
-            filaString.removeString();
-            filaString.removeString();
-            filaString.imprimeString();
+            filaStrings.removerString();
+            filaStrings.removerString();
+            filaStrings.removerString();
+            filaStrings.imprimirFilaStrings();
 
             System.out.println("Tentando remover da fila vazia:");
             try {
-                filaString.removeString();
+                filaStrings.removerString();
             } catch (Exception e) {
                 System.out.println("Erro: " + e.getMessage());
             }
