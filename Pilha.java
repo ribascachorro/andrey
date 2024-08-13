@@ -1,78 +1,78 @@
 public class Pilha {
-    private int capacidade;
-    private int topo;
-    private int[] dados;
-    private String[] dadosString; 
+    private int capacidadeMaxima;
+    private int indiceTopo;
+    private int[] pilhaInteiros;
+    private String[] pilhaStrings; 
 
     // Construtor
-    public Pilha(int capacidade) {
-        this.capacidade = capacidade;
-        this.topo = -1;
-        this.dados = new int[capacidade];
-        this.dadosString = new String[capacidade]; 
+    public Pilha(int capacidadeMaxima) {
+        this.capacidadeMaxima = capacidadeMaxima;
+        this.indiceTopo = -1;
+        this.pilhaInteiros = new int[capacidadeMaxima];
+        this.pilhaStrings = new String[capacidadeMaxima]; 
     }
 
-    // ve se ta cheio
-    public boolean cheia() {
-        return topo == capacidade - 1;
+    // Verifica se a pilha está cheia
+    public boolean estaCheia() {
+        return indiceTopo == capacidadeMaxima - 1;
     }
 
-    //ve se ta vazio
-    public boolean vazia() {
-        return topo == -1;
+    // Verifica se a pilha está vazia
+    public boolean estaVazia() {
+        return indiceTopo == -1;
     }
 
-    // novo elemento (int)
-    public void insere(int elemento) throws Exception {
-        if (cheia()) {
+    // Insere novo elemento inteiro na pilha
+    public void inserir(int elemento) throws Exception {
+        if (estaCheia()) {
             throw new Exception("Pilha cheia");
         }
-        dados[++topo] = elemento;
+        pilhaInteiros[++indiceTopo] = elemento;
     }
 
-    //  novo elemento (String)
-    public void insere(String elemento) throws Exception {
-        if (cheia()) {
+    // Insere novo elemento string na pilha
+    public void inserir(String elemento) throws Exception {
+        if (estaCheia()) {
             throw new Exception("Pilha cheia");
         }
-        dadosString[++topo] = elemento;
+        pilhaStrings[++indiceTopo] = elemento;
     }
 
-    //tira elemento (int)
-    public int remove() throws Exception {
-        if (vazia()) {
+    // Remove e retorna o elemento inteiro do topo da pilha
+    public int remover() throws Exception {
+        if (estaVazia()) {
             throw new Exception("Pilha vazia");
         }
-        return dados[topo--];
+        return pilhaInteiros[indiceTopo--];
     }
 
-    //tira elemento (String)
-    public String removeString() throws Exception {
-        if (vazia()) {
+    // Remove e retorna o elemento string do topo da pilha
+    public String removerString() throws Exception {
+        if (estaVazia()) {
             throw new Exception("Pilha vazia");
         }
-        return dadosString[topo--];
+        return pilhaStrings[indiceTopo--];
     }
 
-    // print tudo
-    public void imprime() {
-        if (vazia()) {
+    // Imprime todos os elementos inteiros da pilha
+    public void imprimir() {
+        if (estaVazia()) {
             System.out.println("Pilha vazia");
         } else {
-            for (int i = 0; i <= topo; i++) {
-                System.out.print(dados[i] + " ");
+            for (int i = 0; i <= indiceTopo; i++) {
+                System.out.print(pilhaInteiros[i] + " ");
             }
             System.out.println();
         }
     }
 
-    // print tudo (para String)
-    public void imprimeString() {
-        if (vazia()) {
+    // Imprime todos os elementos string da pilha
+    public void imprimirStrings() {
+        if (estaVazia()) {
             System.out.println("Pilha vazia");
         } else {
-            for (int i = 0; i <= topo; i++) {
-                System.out.print(dadosString[i] + " ");
+            for (int i = 0; i <= indiceTopo; i++) {
+                System.out.print(pilhaStrings[i] + " ");
             }
             System.out.println();
         }
